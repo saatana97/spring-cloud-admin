@@ -1,0 +1,19 @@
+server:
+  port: 8881
+spring:
+  profiles:
+    include: common
+    active: common
+  application:
+    name: store-server
+  datasource:
+    url: jdbc:mysql://localhost:3306/sca-store?characterEncoding=utf8&serverTimezone=GMT%2b8
+    username: root
+    password: 123456
+feign:
+  hystrix:
+    enabled: true
+logging:
+  level:
+    root: info
+  path: C:/LOGS/SpringCloudAdmin/store/

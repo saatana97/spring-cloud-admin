@@ -1,0 +1,17 @@
+server:
+  port: 8761
+eureka:
+  instance:
+    hostname: localhost
+  client:
+    register-with-eureka: false
+    fetchRegistry: false
+spring:
+  profiles:
+    include: common
+  application:
+    name: eureka-server
+  datasource:
+    url: jdbc:mysql://localhost:3306/sca-eureka?characterEncoding=utf8&serverTimezone=GMT%2b8
+    username: root
+    password: 123456
