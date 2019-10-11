@@ -1,17 +1,15 @@
-package cn.saatana.system;
+package cn.saatana.system.test.controller;
 
-import org.springframework.beans.factory.annotation.Value;
+import cn.saatana.system.annotation.Guest;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("test")
+@Guest
 public class TestController {
-	@Value("${server.port}")
-	private String port;
-
 	@RequestMapping("hi")
-	public String index(String name) {
-		return "Hello," + name + "\tMy port is " + port;
+	public String hi(String name) {
+		return "Hello," + name;
 	}
 }

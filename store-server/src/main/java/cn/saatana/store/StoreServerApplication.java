@@ -18,13 +18,13 @@ import org.springframework.web.client.RestTemplate;
 @EnableFeignClients
 @EnableCircuitBreaker
 public class StoreServerApplication {
+	public static void main(String[] args) {
+		SpringApplication.run(StoreServerApplication.class, args);
+	}
+
 	@Bean
 	@LoadBalanced
 	public RestTemplate restTemplate() {
 		return new RestTemplate();
-	}
-
-	public static void main(String[] args) {
-		SpringApplication.run(StoreServerApplication.class, args);
 	}
 }

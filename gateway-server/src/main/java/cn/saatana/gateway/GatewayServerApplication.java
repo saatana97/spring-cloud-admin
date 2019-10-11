@@ -10,15 +10,15 @@ import org.springframework.context.annotation.Bean;
 @SpringBootApplication
 @EnableEurekaClient
 public class GatewayServerApplication {
+	public static void main(String[] args) {
+		SpringApplication.run(GatewayServerApplication.class, args);
+	}
+
 	@Bean
 	public RouteLocator routeLocator(RouteLocatorBuilder builder) {
 		return builder.routes()
 				.route(r -> r.path("/system/**").filters(f -> f.stripPrefix(1)).uri("lb://SYSTEM-SERVER"))
 				.route(r -> r.path("/store/**").filters(f -> f.stripPrefix(1)).uri("lb://STORE-SERVER"))
 				.build();
-	}
-
-	public static void main(String[] args) {
-		SpringApplication.run(GatewayServerApplication.class, args);
 	}
 }

@@ -1,11 +1,44 @@
 server:
   port: 8880
+eureka:
+  client:
+    service-url:
+      defautZone: http://localhost:8761/eureka/
 spring:
-  profiles:
-    include: common
   application:
     name: system-server
   datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    type: com.alibaba.druid.pool.DruidDataSource
     url: jdbc:mysql://localhost:3306/sca-system?characterEncoding=utf8&serverTimezone=GMT%2b8
     username: root
     password: 123456
+  profiles:
+    active: pro
+  servlet:
+    multipart:
+      max-file-size: 5MB
+      max-request-size: 5MB
+  jpa:
+    open-in-view: true
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+    profiles:
+      active: pro
+    jackson:
+      date-format: yyyy-MM-dd HH:mm:ss
+      time-zone: GMT+8
+      default-property-inclusion: non-null
+      serialization:
+        indent-output: true
+        fail-on-empty-beans: false
+      deserialization:
+        fail-on-unknown-properties: false
+      parser:
+        allow-unquoted-control-chars: true
+        allow-single-quotes: true
+logging:
+  path: C:/LOGS/SpringCloudAdmin/system
+  level:
+    root: info
