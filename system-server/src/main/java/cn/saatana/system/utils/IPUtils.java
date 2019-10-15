@@ -7,8 +7,7 @@ import java.net.UnknownHostException;
 /**
  * 用于获取客户端IP地址
  *
- * @author 向文可
- * @see https://www.cnblogs.com/mr-wuxiansheng/p/7773121.html
+ * @author https://www.cnblogs.com/mr-wuxiansheng/p/7773121.html
  */
 public class IPUtils {
 	/**

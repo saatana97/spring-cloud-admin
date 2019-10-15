@@ -1,6 +1,6 @@
-package cn.saatana.store.fallback;
+package cn.saatana.fallback;
 
-import cn.saatana.store.feign.SystemServer;
+import cn.saatana.feign.SystemServer;
 import org.springframework.stereotype.Component;
 
 @Component

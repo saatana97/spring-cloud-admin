@@ -1,5 +1,5 @@
-import cn.saatana.store.StoreServerApplication;
-import cn.saatana.store.TestController;
+import cn.saatana.StoreServerApplication;
+import cn.saatana.TestController;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
