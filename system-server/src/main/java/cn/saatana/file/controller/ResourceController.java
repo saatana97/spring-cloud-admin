@@ -1,11 +1,11 @@
-package cn.saatana.system.file.controller;
+package cn.saatana.file.controller;
 
 import cn.saatana.annotation.LogOparetion;
 import cn.saatana.common.CurdController;
 import cn.saatana.common.Res;
 import cn.saatana.entity.Resource;
-import cn.saatana.system.file.repository.ResourceRepository;
-import cn.saatana.system.file.service.ResourceService;
+import cn.saatana.file.repository.ResourceRepository;
+import cn.saatana.file.service.ResourceService;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.util.unit.DataSize;
 import org.springframework.validation.BindingResult;

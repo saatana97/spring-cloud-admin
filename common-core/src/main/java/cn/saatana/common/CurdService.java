@@ -1,4 +1,4 @@
-package cn.saatana.system.common;
+package cn.saatana.common;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Example;

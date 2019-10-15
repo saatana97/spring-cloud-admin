@@ -1,4 +1,4 @@
-package cn.saatana.system.role.repository;
+package cn.saatana.role.repository;
 
 import cn.saatana.common.CurdRepository;
 import cn.saatana.entity.Role;

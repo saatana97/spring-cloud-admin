@@ -1,8 +1,8 @@
-package cn.saatana.system.menu.entity;
+package cn.saatana.entity;
 
-import cn.saatana.system.common.BaseEntity;
-import cn.saatana.system.utils.tree.TreeNode;
-import cn.saatana.system.utils.tree.Treeable;
+import cn.saatana.common.BaseEntity;
+import cn.saatana.utils.tree.TreeNode;
+import cn.saatana.utils.tree.Treeable;
 import com.fasterxml.jackson.annotation.JsonGetter;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;

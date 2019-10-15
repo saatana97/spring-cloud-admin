@@ -1,4 +1,4 @@
-package cn.saatana.gateway;
+package cn.saatana;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;

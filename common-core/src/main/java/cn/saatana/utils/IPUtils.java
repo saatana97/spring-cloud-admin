@@ -1,4 +1,4 @@
-package cn.saatana.system.utils;
+package cn.saatana.utils;
 
 import javax.servlet.http.HttpServletRequest;
 import java.net.InetAddress;

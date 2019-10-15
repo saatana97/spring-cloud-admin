@@ -1,16 +1,15 @@
-package cn.saatana.feign.system;
+package cn.saatana.feign;
 
-import cn.saatana.entity.BaseEntity;
-import cn.saatana.entity.Res;
+import cn.saatana.common.BaseEntity;
+import cn.saatana.common.Res;
 import org.springframework.data.domain.Page;
-import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 
 import java.util.List;
 
-public interface CurdServer<Entity extends BaseEntity> {
+public interface CurdFeign<Entity extends BaseEntity> {
 	Res<Entity> get(@PathVariable String id);
 	Res<List<Entity>> check(@RequestBody Entity entity);
 	Res<Page<Entity>> findPage(@RequestBody Entity entity);

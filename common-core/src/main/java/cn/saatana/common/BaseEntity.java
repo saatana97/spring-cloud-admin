@@ -1,8 +1,8 @@
-package cn.saatana.system.common;
+package cn.saatana.common;
 
-import cn.saatana.system.Safer;
-import cn.saatana.system.auth.entity.AuthorizationInformation;
-import cn.saatana.system.auth.entity.Authorizer;
+import cn.saatana.core.Safer;
+import cn.saatana.entity.AuthorizationInformation;
+import cn.saatana.entity.Authorize;
 import com.fasterxml.jackson.annotation.JsonGetter;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
@@ -33,10 +33,10 @@ public abstract class BaseEntity implements Serializable {
 	private Date updateDate;
 	@JsonIgnore
 	@ManyToOne(cascade = CascadeType.REFRESH, fetch = FetchType.EAGER)
-	private Authorizer creator;
+	private Authorize creator;
 	@JsonIgnore
 	@ManyToOne(cascade = CascadeType.REFRESH, fetch = FetchType.EAGER)
-	private Authorizer updator;
+	private Authorize updator;
 	@JsonIgnore
 	private int dataStatus = 0;
 	@Transient
@@ -78,7 +78,7 @@ public abstract class BaseEntity implements Serializable {
 	@JsonGetter
 	public String getCreatorId() {
 		String res = null;
-		Authorizer auth = this.getCreator();
+		Authorize auth = this.getCreator();
 		if (auth != null) {
 			res = auth.getId();
 		}
@@ -88,7 +88,7 @@ public abstract class BaseEntity implements Serializable {
 	@JsonGetter
 	public String getCreatorUsername() {
 		String res = null;
-		Authorizer auth = this.getCreator();
+		Authorize auth = this.getCreator();
 		if (auth != null) {
 			res = auth.getUsername();
 		}
@@ -98,7 +98,7 @@ public abstract class BaseEntity implements Serializable {
 	@JsonGetter
 	public String getUpdatorId() {
 		String res = null;
-		Authorizer auth = this.getUpdator();
+		Authorize auth = this.getUpdator();
 		if (auth != null) {
 			res = auth.getId();
 		}
@@ -108,7 +108,7 @@ public abstract class BaseEntity implements Serializable {
 	@JsonGetter
 	public String getUpdatorUsername() {
 		String res = null;
-		Authorizer auth = this.getUpdator();
+		Authorize auth = this.getUpdator();
 		if (auth != null) {
 			res = auth.getUsername();
 		}

@@ -1,19 +1,18 @@
-package cn.saatana.system.utils;
+package cn.saatana.utils;
 
-import cn.saatana.system.dict.entity.Dictionary;
-import cn.saatana.system.dict.service.DictionaryService;
+import cn.saatana.entity.Dictionary;
+import cn.saatana.feign.system.DictServer;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.ExampleMatcher.StringMatcher;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
 
 @Component
 public class DictUtils {
-	private static DictionaryService dictService;
+	private static DictServer dictService;
 
 	@Autowired
-	public void setDictService(DictionaryService dictService) {
+	public void setDictService(DictServer dictService) {
 		DictUtils.dictService = dictService;
 	}
 
@@ -27,7 +26,7 @@ public class DictUtils {
 	public static String query(String code, int value) {
 		String res = "未知";
 		Dictionary entity = new Dictionary(code, value);
-		List<Dictionary> list = dictService.findList(entity, StringMatcher.EXACT);
+		List<Dictionary> list = dictService.check(entity).getData();
 		if (list.size() > 0) {
 			res = list.get(0).getLabel();
 		}

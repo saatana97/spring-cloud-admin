@@ -1,4 +1,4 @@
-package cn.saatana.system.test.controller;
+package cn.saatana.test;
 
 import cn.saatana.annotation.Guest;
 import org.springframework.web.bind.annotation.RequestMapping;

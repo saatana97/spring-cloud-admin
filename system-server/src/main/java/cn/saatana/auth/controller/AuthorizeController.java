@@ -1,4 +1,4 @@
-package cn.saatana.system.auth.controller;
+package cn.saatana.auth.controller;
 
 import cn.saatana.annotation.Guest;
 import cn.saatana.annotation.LogOparetion;
@@ -7,8 +7,8 @@ import cn.saatana.common.Res;
 import cn.saatana.core.Safer;
 import cn.saatana.entity.AuthorizationInformation;
 import cn.saatana.entity.Authorize;
-import cn.saatana.system.auth.repository.AuthorizeRepository;
-import cn.saatana.system.auth.service.AuthorizeService;
+import cn.saatana.auth.repository.AuthorizeRepository;
+import cn.saatana.auth.service.AuthorizeService;
 import cn.saatana.utils.MD5Utils;
 import cn.saatana.wechat.Wechat;
 import org.springframework.util.StringUtils;

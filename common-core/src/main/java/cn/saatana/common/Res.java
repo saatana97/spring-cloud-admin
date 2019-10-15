@@ -1,4 +1,4 @@
-package cn.saatana.system.common;
+package cn.saatana.common;
 
 import org.springframework.http.HttpStatus;
 

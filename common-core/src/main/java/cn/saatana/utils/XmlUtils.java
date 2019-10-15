@@ -1,6 +1,6 @@
-package cn.saatana.system.utils;
+package cn.saatana.utils;
 
-import cn.saatana.wechat.model.message.TextMessage;
+import cn.saatana.entity.TextMessage;
 import com.thoughtworks.xstream.XStream;
 import org.dom4j.Document;
 import org.dom4j.DocumentException;

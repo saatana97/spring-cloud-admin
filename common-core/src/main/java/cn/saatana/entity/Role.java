@@ -1,7 +1,6 @@
-package cn.saatana.system.role.entity;
+package cn.saatana.entity;
 
-import cn.saatana.system.common.BaseEntity;
-import cn.saatana.system.menu.entity.Menu;
+import cn.saatana.common.BaseEntity;
 import com.fasterxml.jackson.annotation.JsonGetter;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;

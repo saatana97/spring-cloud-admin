@@ -1,10 +1,10 @@
-package cn.saatana.system.config;
+package cn.saatana.config;
 
-import cn.saatana.system.Safer;
-import cn.saatana.system.annotation.LogOparetion;
-import cn.saatana.system.log.entity.OparetionLog;
-import cn.saatana.system.log.service.OparetionLogService;
-import cn.saatana.system.utils.IPUtils;
+import cn.saatana.annotation.LogOparetion;
+import cn.saatana.core.Safer;
+import cn.saatana.entity.OparetionLog;
+import cn.saatana.feign.system.LogServer;
+import cn.saatana.utils.IPUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.method.HandlerMethod;
@@ -19,7 +19,7 @@ import java.util.logging.Logger;
 public class OparetionLogInterceptHandler extends HandlerInterceptorAdapter {
 	private final Logger log = Logger.getLogger("GlobalInterceptHandler");
 	@Autowired
-	private OparetionLogService oparetionLogService;
+	private LogServer logServer;
 	@Autowired
 	private AppProperties appProp;
 
@@ -48,7 +48,7 @@ public class OparetionLogInterceptHandler extends HandlerInterceptorAdapter {
 				oparetionLog.setMethodName(manno.value());
 			}
 			oparetionLog.setIp(IPUtils.getIP(request));
-			oparetionLogService.create(oparetionLog);
+			logServer.create(oparetionLog);
 			log.fine("记录操作日志：" + oparetionLog.toString());
 		}
 		return result;

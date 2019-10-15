@@ -1,4 +1,4 @@
-package cn.saatana.system.utils.tree;
+package cn.saatana.utils.tree;
 
 import lombok.Data;
 

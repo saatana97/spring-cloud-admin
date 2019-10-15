@@ -1,11 +1,11 @@
-package cn.saatana.system.dict.controller;
+package cn.saatana.dict.controller;
 
 import cn.saatana.annotation.LogOparetion;
 import cn.saatana.common.CurdController;
 import cn.saatana.common.Res;
 import cn.saatana.entity.Dictionary;
-import cn.saatana.system.dict.repository.DictionaryRepository;
-import cn.saatana.system.dict.service.DictionaryService;
+import cn.saatana.dict.repository.DictionaryRepository;
+import cn.saatana.dict.service.DictionaryService;
 import org.springframework.data.domain.ExampleMatcher.StringMatcher;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;

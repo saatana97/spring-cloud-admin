@@ -1,11 +1,11 @@
-package cn.saatana.system.config;
+package cn.saatana.config;
 
-import cn.saatana.system.Safer;
-import cn.saatana.system.annotation.Admin;
-import cn.saatana.system.annotation.Guest;
-import cn.saatana.system.annotation.HasPermission;
-import cn.saatana.system.common.Res;
-import cn.saatana.system.utils.IPUtils;
+import cn.saatana.annotation.Admin;
+import cn.saatana.annotation.Guest;
+import cn.saatana.annotation.HasPermission;
+import cn.saatana.common.Res;
+import cn.saatana.core.Safer;
+import cn.saatana.utils.IPUtils;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;

@@ -1,4 +1,4 @@
-package cn.saatana.system.config;
+package cn.saatana.config;
 
 import lombok.Data;
 import org.springframework.boot.context.properties.ConfigurationProperties;

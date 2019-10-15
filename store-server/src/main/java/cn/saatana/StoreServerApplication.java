@@ -18,7 +18,6 @@ import org.springframework.web.client.RestTemplate;
 @EnableHystrix
 @EnableFeignClients
 @EnableCircuitBreaker
-@ComponentScan("cn.saatana.**")
 public class StoreServerApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(StoreServerApplication.class, args);

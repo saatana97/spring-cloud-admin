@@ -1,4 +1,4 @@
-package cn.saatana.system.annotation;
+package cn.saatana.annotation;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;

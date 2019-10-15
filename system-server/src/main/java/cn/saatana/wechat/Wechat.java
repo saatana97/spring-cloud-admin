@@ -1,8 +1,8 @@
 package cn.saatana.wechat;
 
-import cn.saatana.system.config.AppProperties;
-import cn.saatana.system.utils.HttpUtils;
-import cn.saatana.wechat.token.entity.AccessToken;
+import cn.saatana.config.AppProperties;
+import cn.saatana.entity.AccessToken;
+import cn.saatana.utils.HttpUtils;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;

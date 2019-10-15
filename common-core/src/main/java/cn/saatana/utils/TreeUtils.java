@@ -1,7 +1,7 @@
-package cn.saatana.system.utils;
+package cn.saatana.utils;
 
-import cn.saatana.system.utils.tree.TreeNode;
-import cn.saatana.system.utils.tree.Treeable;
+import cn.saatana.utils.tree.TreeNode;
+import cn.saatana.utils.tree.Treeable;
 import lombok.Data;
 import org.springframework.util.StringUtils;
 

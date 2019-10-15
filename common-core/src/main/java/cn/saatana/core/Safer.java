@@ -1,9 +1,9 @@
-package cn.saatana.system;
+package cn.saatana.core;
 
-import cn.saatana.system.annotation.HasPermission.PermissionLogic;
-import cn.saatana.system.auth.entity.AuthorizationInformation;
-import cn.saatana.system.auth.entity.Authorizer;
-import cn.saatana.system.auth.service.AuthorizerService;
+import cn.saatana.annotation.HasPermission;
+import cn.saatana.entity.AuthorizationInformation;
+import cn.saatana.entity.Authorize;
+import cn.saatana.feign.system.AuthServer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.util.StringUtils;
@@ -24,10 +24,10 @@ import java.util.concurrent.ConcurrentHashMap;
 @Component
 public class Safer {
 	private static Map<String, AuthorizationInformation> redis = new ConcurrentHashMap<>();
-	private static AuthorizerService authService;
+	private static AuthServer authService;
 
 	@Autowired
-	public void setAuthService(AuthorizerService authService) {
+	public void setAuthService(AuthServer authService) {
 		Safer.authService = authService;
 	}
 
@@ -86,7 +86,7 @@ public class Safer {
 		if (auth == null) {
 			redis.remove(token);
 		} else {
-			auth.setAuth(authService.get(auth.getAuth().getId()));
+			auth.setAuth(authService.get(auth.getAuth().getId()).getData());
 			redis.put(token, auth);
 		}
 		return token;
@@ -98,7 +98,7 @@ public class Safer {
 	 * @param auth 用户
 	 * @return 用户登录信息
 	 */
-	public static AuthorizationInformation login(Authorizer auth) {
+	public static AuthorizationInformation login(Authorize auth) {
 		HttpServletRequest request = currentRequest();
 		String token = generateToken();
 		AuthorizationInformation userInfo = new AuthorizationInformation(token, request.getSession().getId(), auth);
@@ -117,7 +117,7 @@ public class Safer {
 	 * @return
 	 */
 	public static boolean hasPromission(String permission) {
-		return hasPermission(permission, PermissionLogic.ALL);
+		return hasPermission(permission, HasPermission.PermissionLogic.ALL);
 	}
 
 	/**
@@ -127,7 +127,7 @@ public class Safer {
 	 * @param logic      存在多个权限时的检验逻辑
 	 * @return 是否拥有
 	 */
-	public static boolean hasPermission(String permission, PermissionLogic logic) {
+	public static boolean hasPermission(String permission, HasPermission.PermissionLogic logic) {
 		return hasPermission(currentAuthId(), permission, logic);
 	}
 
@@ -139,12 +139,12 @@ public class Safer {
 	 * @param logic      存在多个权限时的检验逻辑
 	 * @return 是否拥有
 	 */
-	public static boolean hasPermission(String authId, String permission, PermissionLogic logic) {
+	public static boolean hasPermission(String authId, String permission, HasPermission.PermissionLogic logic) {
 		boolean res = false;
 		if (StringUtils.isEmpty(permission)) {
 			res = true;
 		} else {
-			Authorizer auth = authService.get(authId);
+			Authorize auth = authService.get(authId).getData();
 			if (auth.getRoles() != null) {
 				Set<String> has = new HashSet<>();
 				List<String> need = Arrays.asList(permission.split(","));
@@ -155,9 +155,9 @@ public class Safer {
 				});
 				if (need.size() == 1) {
 					res = has.contains(need.get(0));
-				} else if (logic == PermissionLogic.ALL) {
+				} else if (logic == HasPermission.PermissionLogic.ALL) {
 					res = has.containsAll(need);
-				} else if (logic == PermissionLogic.ANY) {
+				} else if (logic == HasPermission.PermissionLogic.ANY) {
 					for (String item : need) {
 						res |= has.contains(item);
 						if (res) {

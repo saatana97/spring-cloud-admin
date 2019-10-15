@@ -1,6 +1,6 @@
-package cn.saatana.entity.dict;
+package cn.saatana.entity;
 
-import cn.saatana.entity.BaseEntity;
+import cn.saatana.common.BaseEntity;
 import lombok.Getter;
 import lombok.Setter;
 

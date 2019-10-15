@@ -1,4 +1,4 @@
-package cn.saatana.system.dict.repository;
+package cn.saatana.dict.repository;
 
 import cn.saatana.common.CurdRepository;
 import cn.saatana.entity.Dictionary;

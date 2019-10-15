@@ -1,4 +1,4 @@
-package cn.saatana.system.utils;
+package cn.saatana.utils;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;

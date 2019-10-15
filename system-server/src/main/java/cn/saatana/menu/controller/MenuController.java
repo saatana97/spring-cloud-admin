@@ -1,4 +1,4 @@
-package cn.saatana.system.menu.controller;
+package cn.saatana.menu.controller;
 
 import cn.saatana.annotation.HasPermission;
 import cn.saatana.annotation.LogOparetion;
@@ -8,9 +8,9 @@ import cn.saatana.core.Safer;
 import cn.saatana.entity.Authorize;
 import cn.saatana.entity.Menu;
 import cn.saatana.entity.Role;
-import cn.saatana.system.menu.repository.MenuRepository;
-import cn.saatana.system.menu.service.MenuService;
-import cn.saatana.system.role.service.RoleService;
+import cn.saatana.menu.repository.MenuRepository;
+import cn.saatana.menu.service.MenuService;
+import cn.saatana.role.service.RoleService;
 import cn.saatana.utils.TreeUtils;
 import cn.saatana.utils.tree.TreeNode;
 import org.springframework.beans.factory.annotation.Autowired;

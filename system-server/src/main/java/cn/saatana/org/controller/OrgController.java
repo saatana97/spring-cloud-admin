@@ -1,11 +1,11 @@
-package cn.saatana.system.org.controller;
+package cn.saatana.org.controller;
 
 import cn.saatana.annotation.LogOparetion;
 import cn.saatana.common.CurdController;
 import cn.saatana.common.Res;
 import cn.saatana.entity.Org;
-import cn.saatana.system.org.repository.OrgRepository;
-import cn.saatana.system.org.service.OrgService;
+import cn.saatana.org.repository.OrgRepository;
+import cn.saatana.org.service.OrgService;
 import cn.saatana.utils.TreeUtils;
 import cn.saatana.utils.tree.TreeNode;
 import org.springframework.web.bind.annotation.RequestMapping;

@@ -1,13 +1,13 @@
-package cn.saatana.system.role.controller;
+package cn.saatana.role.controller;
 
 import cn.saatana.annotation.LogOparetion;
 import cn.saatana.common.CurdController;
 import cn.saatana.common.Res;
 import cn.saatana.entity.Authorize;
 import cn.saatana.entity.Role;
-import cn.saatana.system.auth.service.AuthorizeService;
-import cn.saatana.system.role.repository.RoleRepository;
-import cn.saatana.system.role.service.RoleService;
+import cn.saatana.auth.service.AuthorizeService;
+import cn.saatana.role.repository.RoleRepository;
+import cn.saatana.role.service.RoleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

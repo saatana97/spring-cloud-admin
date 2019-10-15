@@ -1,11 +1,11 @@
-package cn.saatana.system.common;
+package cn.saatana.common;
 
-import cn.saatana.system.Safer;
-import cn.saatana.system.annotation.LogOparetion;
-import cn.saatana.system.auth.entity.AuthorizationInformation;
-import cn.saatana.system.auth.entity.Authorizer;
-import cn.saatana.system.config.AppProperties;
-import cn.saatana.system.config.TextProperties;
+import cn.saatana.annotation.LogOparetion;
+import cn.saatana.config.AppProperties;
+import cn.saatana.config.TextProperties;
+import cn.saatana.core.Safer;
+import cn.saatana.entity.AuthorizationInformation;
+import cn.saatana.entity.Authorize;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.propertyeditors.CustomDateEditor;
@@ -150,7 +150,7 @@ public abstract class CurdController<Service extends CurdService<Repository, Ent
 	 *
 	 * @return
 	 */
-	protected Authorizer currentAuth() {
+	protected Authorize currentAuth() {
 		AuthorizationInformation info = Safer.currentAuthInfo();
 		return info == null ? null : info.getAuth();
 	}

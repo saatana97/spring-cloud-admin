@@ -1,4 +1,4 @@
-package cn.saatana.wechat.token.entity;
+package cn.saatana.entity;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;

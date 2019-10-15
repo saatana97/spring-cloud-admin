@@ -1,4 +1,4 @@
-package cn.saatana.entity.auth;
+package cn.saatana.entity;
 
 import lombok.Data;
 
@@ -6,12 +6,12 @@ import lombok.Data;
 public class AuthorizationInformation {
 	private String sessionId;
 	private String token;
-	private Authorizer auth;
+	private Authorize auth;
 
 	public AuthorizationInformation() {
 	}
 
-	public AuthorizationInformation(String token, String sessionId, Authorizer auth) {
+	public AuthorizationInformation(String token, String sessionId, Authorize auth) {
 		this.token = token;
 		this.sessionId = sessionId;
 		this.auth = auth;

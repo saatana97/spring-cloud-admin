@@ -1,4 +1,4 @@
-package cn.saatana.system.log.repository;
+package cn.saatana.log.repository;
 
 import cn.saatana.common.CurdRepository;
 import cn.saatana.entity.OparetionLog;

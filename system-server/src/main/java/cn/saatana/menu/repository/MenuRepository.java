@@ -1,4 +1,4 @@
-package cn.saatana.system.menu.repository;
+package cn.saatana.menu.repository;
 
 import cn.saatana.common.CurdRepository;
 import cn.saatana.entity.Menu;

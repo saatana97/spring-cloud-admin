@@ -1,8 +1,8 @@
-package cn.saatana.system.auth.service;
+package cn.saatana.auth.service;
 
 import cn.saatana.common.CurdService;
 import cn.saatana.entity.Authorize;
-import cn.saatana.system.auth.repository.AuthorizeRepository;
+import cn.saatana.auth.repository.AuthorizeRepository;
 import org.springframework.stereotype.Service;
 
 @Service

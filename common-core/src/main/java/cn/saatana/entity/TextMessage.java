@@ -1,6 +1,6 @@
-package cn.saatana.wechat.model.message;
+package cn.saatana.entity;
 
-import cn.saatana.system.utils.XmlUtils;
+import cn.saatana.utils.XmlUtils;
 import lombok.Getter;
 import lombok.Setter;
 

@@ -1,6 +1,6 @@
-package cn.saatana.wechat.button.entity;
+package cn.saatana.entity;
 
-import cn.saatana.system.common.BaseEntity;
+import cn.saatana.common.BaseEntity;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Getter;
 import lombok.Setter;

@@ -1,4 +1,4 @@
-package cn.saatana.system.org.repository;
+package cn.saatana.org.repository;
 
 import cn.saatana.common.CurdRepository;
 import cn.saatana.entity.Org;

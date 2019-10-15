@@ -1,6 +1,6 @@
 package cn.saatana;
 
-import cn.saatana.feign.SystemServer;
+import cn.saatana.feign.system.AuthServer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class TestController {
 	//	@Resource(type = SystemServer.class)
 	@Autowired
-	private SystemServer systemServer;
+	private AuthServer systemServer;
 //	private RestTemplate rest;
 
 	@RequestMapping("hi")

@@ -1,8 +1,10 @@
 package cn.saatana.feign.system;
 
 import cn.saatana.common.Res;
-import cn.saatana.entity.Dictionary;
+import cn.saatana.entity.OparetionLog;
+import cn.saatana.entity.OparetionLog;
 import cn.saatana.fallback.system.DictServerFallback;
+import cn.saatana.fallback.system.LogServerFallback;
 import cn.saatana.feign.CurdFeign;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.data.domain.Page;
@@ -14,45 +16,45 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import java.util.List;
 
 @Component
-@FeignClient(value = "system-server",name = "DictFeign",fallback = DictServerFallback.class)
-public interface DictServer extends CurdFeign<Dictionary> {
+@FeignClient(value = "system-server",name = "LogFeign",fallback = LogServerFallback.class)
+public interface LogServer extends CurdFeign<OparetionLog> {
 	@Override
-	@RequestMapping("dict/get")
-	Res<Dictionary> get(@PathVariable String id);
+	@RequestMapping("log/get")
+	Res<OparetionLog> get(@PathVariable String id);
 	@Override
-	@RequestMapping("dict/check")
-	Res<List<Dictionary>> check(@RequestBody Dictionary entity);
+	@RequestMapping("log/check")
+	Res<List<OparetionLog>> check(@RequestBody OparetionLog entity);
 	@Override
-	@RequestMapping("dict/page")
-	Res<Page<Dictionary>> findPage(@RequestBody Dictionary entity);
+	@RequestMapping("log/page")
+	Res<Page<OparetionLog>> findPage(@RequestBody OparetionLog entity);
 	@Override
-	@RequestMapping("dict/list")
-	Res<List<Dictionary>> findList(@RequestBody Dictionary entity);
+	@RequestMapping("log/list")
+	Res<List<OparetionLog>> findList(@RequestBody OparetionLog entity);
 	@Override
-	@RequestMapping("dict/all")
-	Res<List<Dictionary>> findAll();
+	@RequestMapping("log/all")
+	Res<List<OparetionLog>> findAll();
 	@Override
-	@RequestMapping("dict/create")
-	Res<Dictionary> create(@RequestBody Dictionary entity);
+	@RequestMapping("log/create")
+	Res<OparetionLog> create(@RequestBody OparetionLog entity);
 	@Override
-	@RequestMapping("dict/update")
-	Res<Dictionary> update(@RequestBody Dictionary entity);
+	@RequestMapping("log/update")
+	Res<OparetionLog> update(@RequestBody OparetionLog entity);
 	@Override
-	@RequestMapping("dict/remove")
-	Res<Dictionary> remove(@PathVariable String id);
+	@RequestMapping("log/remove")
+	Res<OparetionLog> remove(@PathVariable String id);
 	@Override
-	@RequestMapping("dict/removeAll")
-	Res<List<Dictionary>> removeAll(@RequestBody List<String> idList);
+	@RequestMapping("log/removeAll")
+	Res<List<OparetionLog>> removeAll(@RequestBody List<String> idList);
 	@Override
-	@RequestMapping("dict/restore")
-	Res<Dictionary> restore(@PathVariable String id);
+	@RequestMapping("log/restore")
+	Res<OparetionLog> restore(@PathVariable String id);
 	@Override
-	@RequestMapping("dict/restoreAll")
-	Res<List<Dictionary>> restore(@RequestBody List<String> idList);
+	@RequestMapping("log/restoreAll")
+	Res<List<OparetionLog>> restore(@RequestBody List<String> idList);
 	@Override
-	@RequestMapping("dict/delete")
-	Res<Dictionary> delete(@PathVariable String id);
+	@RequestMapping("log/delete")
+	Res<OparetionLog> delete(@PathVariable String id);
 	@Override
-	@RequestMapping("dict/deleteAll")
-	Res<List<Dictionary>> deleteAll(@RequestBody List<String> ids);
+	@RequestMapping("log/deleteAll")
+	Res<List<OparetionLog>> deleteAll(@RequestBody List<String> ids);
 }

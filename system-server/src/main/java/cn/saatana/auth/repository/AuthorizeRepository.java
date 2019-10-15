@@ -1,4 +1,4 @@
-package cn.saatana.system.auth.repository;
+package cn.saatana.auth.repository;
 
 import cn.saatana.common.CurdRepository;
 import cn.saatana.entity.Authorize;

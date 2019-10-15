@@ -1,12 +1,12 @@
-package cn.saatana.system.log.controller;
+package cn.saatana.log.controller;
 
 import cn.saatana.annotation.Admin;
 import cn.saatana.annotation.LogOparetion;
 import cn.saatana.common.CurdController;
 import cn.saatana.common.Res;
 import cn.saatana.entity.OparetionLog;
-import cn.saatana.system.log.repository.OparetionLogRepository;
-import cn.saatana.system.log.service.OparetionLogService;
+import cn.saatana.log.repository.OparetionLogRepository;
+import cn.saatana.log.service.OparetionLogService;
 import org.springframework.data.domain.Page;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;

@@ -1,8 +1,8 @@
-package cn.saatana.system.dict.service;
+package cn.saatana.dict.service;
 
 import cn.saatana.common.CurdService;
 import cn.saatana.entity.Dictionary;
-import cn.saatana.system.dict.repository.DictionaryRepository;
+import cn.saatana.dict.repository.DictionaryRepository;
 import org.springframework.data.domain.*;
 import org.springframework.data.domain.ExampleMatcher.StringMatcher;
 import org.springframework.data.domain.Sort.Direction;

@@ -1,5 +1,6 @@
-package cn.saatana.gateway;
+package cn.saatana;
 
+import cn.saatana.config.AppProperties;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.gateway.filter.GatewayFilter;

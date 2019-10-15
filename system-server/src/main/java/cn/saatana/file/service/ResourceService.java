@@ -1,8 +1,8 @@
-package cn.saatana.system.file.service;
+package cn.saatana.file.service;
 
 import cn.saatana.common.CurdService;
 import cn.saatana.entity.Resource;
-import cn.saatana.system.file.repository.ResourceRepository;
+import cn.saatana.file.repository.ResourceRepository;
 import org.springframework.stereotype.Service;
 
 @Service

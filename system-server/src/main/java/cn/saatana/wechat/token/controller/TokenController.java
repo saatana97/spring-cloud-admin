@@ -1,14 +1,14 @@
 package cn.saatana.wechat.token.controller;
 
-import cn.saatana.system.annotation.Guest;
-import cn.saatana.system.annotation.LogOparetion;
-import cn.saatana.system.auth.entity.Authorizer;
-import cn.saatana.system.auth.service.AuthorizerService;
-import cn.saatana.system.config.AppProperties;
-import cn.saatana.system.utils.SHAUtils;
-import cn.saatana.system.utils.XmlUtils;
-import cn.saatana.wechat.model.message.BaseMessage;
-import cn.saatana.wechat.model.message.TextMessage;
+import cn.saatana.annotation.Guest;
+import cn.saatana.annotation.LogOparetion;
+import cn.saatana.config.AppProperties;
+import cn.saatana.entity.Authorize;
+import cn.saatana.entity.BaseMessage;
+import cn.saatana.entity.TextMessage;
+import cn.saatana.auth.service.AuthorizeService;
+import cn.saatana.utils.SHAUtils;
+import cn.saatana.utils.XmlUtils;
 import org.dom4j.DocumentException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -30,7 +30,7 @@ public class TokenController {
 	@Autowired
 	private AppProperties app;
 	@Autowired
-	private AuthorizerService authService;
+	private AuthorizeService authService;
 
 	@RequestMapping("token")
 	public String index(String signature, String timestamp, String nonce, String echostr, String openid,
@@ -46,7 +46,7 @@ public class TokenController {
 			Map<String, String> map = XmlUtils.xmlToMap(request);
 			String msgType = map.get("MsgType");
 			TextMessage textMessage = new TextMessage(map);
-			Authorizer auth = authService.getByOpenId(openid);
+			Authorize auth = authService.getByOpenId(openid);
 			switch (msgType) {
 				case BaseMessage.TYPE_TEXT:
 					log.info("收到用户消息：" + textMessage.getContent());
@@ -64,7 +64,7 @@ public class TokenController {
 							log.info("用户关注：" + map.get("FromUserName"));
 
 							if (auth == null) {
-								auth = new Authorizer(openid);
+								auth = new Authorize(openid);
 								authService.create(auth);
 							} else {
 								authService.restore(auth);

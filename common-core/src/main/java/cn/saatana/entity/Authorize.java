@@ -1,5 +1,6 @@
 package cn.saatana.entity;
 
+import cn.saatana.common.BaseEntity;
 import com.fasterxml.jackson.annotation.JsonGetter;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -17,8 +18,8 @@ import java.util.Set;
 @Setter
 @EqualsAndHashCode(callSuper = true, exclude = {"roles"})
 @Entity
-@Table(name = "authorizer")
-public class Authorizer extends BaseEntity {
+@Table(name = "authorize")
+public class Authorize extends BaseEntity {
 	private static final long serialVersionUID = 1L;
 	private String username;
 	private String password;
@@ -33,14 +34,14 @@ public class Authorizer extends BaseEntity {
 			@JoinColumn(name = "role_id")})
 	private Set<Role> roles = new HashSet<>();
 
-	public Authorizer() {
+	public Authorize() {
 	}
 
-	public Authorizer(String openId) {
+	public Authorize(String openId) {
 		this.openId = openId;
 	}
 
-	public Authorizer(String username, String password) {
+	public Authorize(String username, String password) {
 		this.username = username;
 		this.password = password;
 	}

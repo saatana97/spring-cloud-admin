@@ -1,61 +1,58 @@
 package cn.saatana.feign.system;
 
-import cn.saatana.entity.Authorizer;
-import cn.saatana.entity.Res;
-import cn.saatana.fallback.system.AuthServerFallback;
+import cn.saatana.common.Res;
+import cn.saatana.entity.Dictionary;
+import cn.saatana.fallback.system.DictServerFallback;
+import cn.saatana.feign.CurdFeign;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
 
 @Component
-@FeignClient(value = "system-server",name = "AuthFeign",fallback = AuthServerFallback.class)
-public interface AuthServer extends CurdFeign<Authorizer> {
-	@RequestMapping("/test/hi")
-	String testHi(@RequestParam String name);
-
+@FeignClient(value = "system-server",name = "DictFeign",fallback = DictServerFallback.class)
+public interface DictServer extends CurdFeign<Dictionary> {
 	@Override
-	@RequestMapping("auth/get")
-	Res<Authorizer> get(@PathVariable String id);
+	@RequestMapping("dict/get")
+	Res<Dictionary> get(@PathVariable String id);
 	@Override
-	@RequestMapping("auth/check")
-	Res<List<Authorizer>> check(@RequestBody Authorizer entity);
+	@RequestMapping("dict/check")
+	Res<List<Dictionary>> check(@RequestBody Dictionary entity);
 	@Override
-	@RequestMapping("auth/page")
-	Res<Page<Authorizer>> findPage(@RequestBody Authorizer entity);
+	@RequestMapping("dict/page")
+	Res<Page<Dictionary>> findPage(@RequestBody Dictionary entity);
 	@Override
-	@RequestMapping("auth/list")
-	Res<List<Authorizer>> findList(@RequestBody Authorizer entity);
+	@RequestMapping("dict/list")
+	Res<List<Dictionary>> findList(@RequestBody Dictionary entity);
 	@Override
-	@RequestMapping("auth/all")
-	Res<List<Authorizer>> findAll();
+	@RequestMapping("dict/all")
+	Res<List<Dictionary>> findAll();
 	@Override
-	@RequestMapping("auth/create")
-	Res<Authorizer> create(@RequestBody Authorizer entity);
+	@RequestMapping("dict/create")
+	Res<Dictionary> create(@RequestBody Dictionary entity);
 	@Override
-	@RequestMapping("auth/update")
-	Res<Authorizer> update(@RequestBody Authorizer entity);
+	@RequestMapping("dict/update")
+	Res<Dictionary> update(@RequestBody Dictionary entity);
 	@Override
-	@RequestMapping("auth/remove")
-	Res<Authorizer> remove(@PathVariable String id);
+	@RequestMapping("dict/remove")
+	Res<Dictionary> remove(@PathVariable String id);
 	@Override
-	@RequestMapping("auth/removeAll")
-	Res<List<Authorizer>> removeAll(@RequestBody List<String> idList);
+	@RequestMapping("dict/removeAll")
+	Res<List<Dictionary>> removeAll(@RequestBody List<String> idList);
 	@Override
-	@RequestMapping("auth/restore")
-	Res<Authorizer> restore(@PathVariable String id);
+	@RequestMapping("dict/restore")
+	Res<Dictionary> restore(@PathVariable String id);
 	@Override
-	@RequestMapping("auth/restoreAll")
-	Res<List<Authorizer>> restore(@RequestBody List<String> idList);
+	@RequestMapping("dict/restoreAll")
+	Res<List<Dictionary>> restore(@RequestBody List<String> idList);
 	@Override
-	@RequestMapping("auth/delete")
-	Res<Authorizer> delete(@PathVariable String id);
+	@RequestMapping("dict/delete")
+	Res<Dictionary> delete(@PathVariable String id);
 	@Override
-	@RequestMapping("auth/deleteAll")
-	Res<List<Authorizer>> deleteAll(@RequestBody List<String> ids);
+	@RequestMapping("dict/deleteAll")
+	Res<List<Dictionary>> deleteAll(@RequestBody List<String> ids);
 }

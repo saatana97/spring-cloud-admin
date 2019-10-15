@@ -1,4 +1,4 @@
-package cn.saatana.system.utils;
+package cn.saatana.utils;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
