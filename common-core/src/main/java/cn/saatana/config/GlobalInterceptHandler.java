@@ -51,7 +51,7 @@ public class GlobalInterceptHandler extends HandlerInterceptorAdapter {
 					JSON.writeValue(response.getWriter(), Res.of(HttpStatus.UNAUTHORIZED.value(), textProp.getInvalidTokenMessage(), null));
 				}
 				result = false;
-			} else if ((needSuperAdmin(handler) && !Safer.isSuperAdmin()) || !hasPersisson(handler, authId)) {
+			} else if ((needSuperAdmin(handler) && !Safer.isSuperAdmin()) || !hasPermission(handler, authId)) {
 				// 没有访问权限的提示语
 				JSON.writeValue(response.getWriter(), Res.of(HttpStatus.UNAUTHORIZED.value(),
 						textProp.getNoAccessMessage(), textProp.getNoAccessMessage()));
@@ -65,7 +65,7 @@ public class GlobalInterceptHandler extends HandlerInterceptorAdapter {
 		return result;
 	}
 
-	private boolean hasPersisson(Object handler, String authId) {
+	private boolean hasPermission(Object handler, String authId) {
 		boolean result = Safer.isSuperAdmin();
 		if (!result && handler instanceof HandlerMethod) {
 			HandlerMethod method = (HandlerMethod) handler;

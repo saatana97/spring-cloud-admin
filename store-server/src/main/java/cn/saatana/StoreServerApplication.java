@@ -11,6 +11,11 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
 @EnableEurekaClient
 //@EnableDiscoveryClient
 //@EnableHystrix
+/**
+ *  TODO
+ *  启动时报错循环依赖，问题出在common-core两个拦截器上，删掉可解决问题
+ *  指定要使用的FeignClient也可以解决问题，不能全包扫描，指定basePackage也没用
+ */
 @EnableFeignClients(clients = {TestFeign.class, AuthFeign.class})
 //@EnableCircuitBreaker
 public class StoreServerApplication {
