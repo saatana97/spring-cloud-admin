@@ -3,7 +3,7 @@ package cn.saatana.core;
 import cn.saatana.annotation.HasPermission;
 import cn.saatana.entity.AuthorizationInformation;
 import cn.saatana.entity.Authorize;
-import cn.saatana.feign.system.AuthServer;
+import cn.saatana.feign.system.AuthFeign;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.util.StringUtils;
@@ -24,10 +24,10 @@ import java.util.concurrent.ConcurrentHashMap;
 @Component
 public class Safer {
 	private static Map<String, AuthorizationInformation> redis = new ConcurrentHashMap<>();
-	private static AuthServer authService;
+	private static AuthFeign authService;
 
 	@Autowired
-	public void setAuthService(AuthServer authService) {
+	public void setAuthService(AuthFeign authService) {
 		Safer.authService = authService;
 	}
 

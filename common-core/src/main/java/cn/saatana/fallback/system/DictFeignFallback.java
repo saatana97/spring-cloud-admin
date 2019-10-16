@@ -2,15 +2,14 @@ package cn.saatana.fallback.system;
 
 import cn.saatana.common.Res;
 import cn.saatana.entity.Dictionary;
-import cn.saatana.feign.system.DictServer;
+import cn.saatana.feign.system.DictFeign;
 import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
 
 @Component
-public class DictServerFallback implements DictServer {
-
+public class DictFeignFallback implements DictFeign {
 	@Override
 	public Res<Dictionary> get(String id) {
 		return Res.error("字典服务连接异常",null);

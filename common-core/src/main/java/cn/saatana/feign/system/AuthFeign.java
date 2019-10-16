@@ -2,24 +2,19 @@ package cn.saatana.feign.system;
 
 import cn.saatana.common.Res;
 import cn.saatana.entity.Authorize;
-import cn.saatana.fallback.system.AuthServerFallback;
+import cn.saatana.fallback.system.AuthFeignFallback;
 import cn.saatana.feign.CurdFeign;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.data.domain.Page;
-import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
 
-@Component
-@FeignClient(value = "system-server",name = "AuthFeign",fallback = AuthServerFallback.class)
-public interface AuthServer extends CurdFeign<Authorize> {
-	@RequestMapping("/test/hi")
-	String testHi(@RequestParam String name);
-
+//@Component
+@FeignClient(contextId="authFeign",value = "system-server",fallback = AuthFeignFallback.class)
+public interface AuthFeign extends CurdFeign<Authorize> {
 	@Override
 	@RequestMapping("auth/get")
 	Res<Authorize> get(@PathVariable String id);

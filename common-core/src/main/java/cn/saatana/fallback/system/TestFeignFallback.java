@@ -1,11 +1,10 @@
 package cn.saatana.fallback.system;
 
-import cn.saatana.feign.system.AuthServer;
-import cn.saatana.feign.system.TestServer;
+import cn.saatana.feign.system.TestFeign;
 import org.springframework.stereotype.Component;
 
 @Component
-public class TestServerFallback implements TestServer {
+public class TestFeignFallback implements TestFeign {
 
 	@Override
 	public String testHi(String name) {

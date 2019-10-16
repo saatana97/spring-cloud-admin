@@ -7,9 +7,8 @@ spring:
     url: jdbc:mysql://localhost:3306/sca-store?characterEncoding=utf8&serverTimezone=GMT%2b8
     username: root
     password: 123456
-  servlet:
-    profiles:
-      active: pro
+  profiles:
+    active: pro
   jpa:
     open-in-view: true
     show-sql: true
@@ -29,6 +28,12 @@ spring:
       parser:
         allow-unquoted-control-chars: true
         allow-single-quotes: true
+eureka:
+  client:
+    service-url:
+      defautZone: http://localhost:8761/eureka/
+      registry-fetch-interval-seconds: 10
+      instance-info-replication-interval-seconds: 10
 feign:
   hystrix:
     enabled: true

@@ -2,16 +2,14 @@ package cn.saatana.fallback.system;
 
 import cn.saatana.common.Res;
 import cn.saatana.entity.OparetionLog;
-import cn.saatana.feign.system.DictServer;
-import cn.saatana.feign.system.LogServer;
-import lombok.extern.java.Log;
+import cn.saatana.feign.system.LogFeign;
 import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
 
 @Component
-public class LogServerFallback implements LogServer {
+public class LogFeignFallback implements LogFeign {
 
 	@Override
 	public Res<OparetionLog> get(String id) {

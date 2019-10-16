@@ -11,8 +11,9 @@
     <name>store-server</name>
     <dependencies>
         <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
+            <groupId>cn.saatana.core</groupId>
+            <artifactId>common-core</artifactId>
+            <version>1.0.0</version>
         </dependency>
     </dependencies>
 </project>

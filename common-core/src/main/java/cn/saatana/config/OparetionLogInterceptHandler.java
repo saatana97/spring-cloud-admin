@@ -3,7 +3,7 @@ package cn.saatana.config;
 import cn.saatana.annotation.LogOparetion;
 import cn.saatana.core.Safer;
 import cn.saatana.entity.OparetionLog;
-import cn.saatana.feign.system.LogServer;
+import cn.saatana.feign.system.LogFeign;
 import cn.saatana.utils.IPUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
@@ -19,7 +19,7 @@ import java.util.logging.Logger;
 public class OparetionLogInterceptHandler extends HandlerInterceptorAdapter {
 	private final Logger log = Logger.getLogger("GlobalInterceptHandler");
 	@Autowired
-	private LogServer logServer;
+	private LogFeign logFeign;
 	@Autowired
 	private AppProperties appProp;
 
@@ -48,7 +48,7 @@ public class OparetionLogInterceptHandler extends HandlerInterceptorAdapter {
 				oparetionLog.setMethodName(manno.value());
 			}
 			oparetionLog.setIp(IPUtils.getIP(request));
-			logServer.create(oparetionLog);
+			logFeign.create(oparetionLog);
 			log.fine("记录操作日志：" + oparetionLog.toString());
 		}
 		return result;

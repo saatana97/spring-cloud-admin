@@ -41,3 +41,9 @@ cloud:
     discovery:
       locator:
         enabled: true
+eureka:
+  client:
+    service-url:
+      defautZone: http://localhost:8761/eureka/
+      registry-fetch-interval-seconds: 10
+      instance-info-replication-interval-seconds: 10

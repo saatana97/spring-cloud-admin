@@ -2,20 +2,19 @@ package cn.saatana.feign.system;
 
 import cn.saatana.common.Res;
 import cn.saatana.entity.Dictionary;
-import cn.saatana.fallback.system.DictServerFallback;
+import cn.saatana.fallback.system.DictFeignFallback;
 import cn.saatana.feign.CurdFeign;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.data.domain.Page;
-import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.List;
 
-@Component
-@FeignClient(value = "system-server",name = "DictFeign",fallback = DictServerFallback.class)
-public interface DictServer extends CurdFeign<Dictionary> {
+//@Component
+@FeignClient(contextId = "dictFeign",value="system-server",fallback = DictFeignFallback.class)
+public interface DictFeign extends CurdFeign<Dictionary> {
 	@Override
 	@RequestMapping("dict/get")
 	Res<Dictionary> get(@PathVariable String id);

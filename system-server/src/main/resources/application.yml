@@ -1,9 +1,5 @@
 server:
   port: 8880
-eureka:
-  client:
-    service-url:
-      defautZone: http://localhost:8761/eureka/
 spring:
   application:
     name: system-server
@@ -38,6 +34,12 @@ spring:
       parser:
         allow-unquoted-control-chars: true
         allow-single-quotes: true
+eureka:
+  client:
+    service-url:
+      defautZone: http://localhost:8761/eureka/
+      registry-fetch-interval-seconds: 10
+      instance-info-replication-interval-seconds: 10
 logging:
   path: C:/LOGS/SpringCloudAdmin/system
   level:

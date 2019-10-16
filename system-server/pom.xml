@@ -12,9 +12,9 @@
 
     <dependencies>
         <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
-            <optional>true</optional>
+            <groupId>cn.saatana.core</groupId>
+            <artifactId>common-core</artifactId>
+            <version>1.0.0</version>
         </dependency>
     </dependencies>
 </project>

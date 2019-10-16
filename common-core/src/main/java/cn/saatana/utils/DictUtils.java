@@ -1,7 +1,7 @@
 package cn.saatana.utils;
 
 import cn.saatana.entity.Dictionary;
-import cn.saatana.feign.system.DictServer;
+import cn.saatana.feign.system.DictFeign;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -9,10 +9,10 @@ import java.util.List;
 
 @Component
 public class DictUtils {
-	private static DictServer dictService;
+	private static DictFeign dictService;
 
 	@Autowired
-	public void setDictService(DictServer dictService) {
+	public void setDictService(DictFeign dictService) {
 		DictUtils.dictService = dictService;
 	}
 

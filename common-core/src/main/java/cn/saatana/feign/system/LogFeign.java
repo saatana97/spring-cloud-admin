@@ -2,22 +2,19 @@ package cn.saatana.feign.system;
 
 import cn.saatana.common.Res;
 import cn.saatana.entity.OparetionLog;
-import cn.saatana.entity.OparetionLog;
-import cn.saatana.fallback.system.DictServerFallback;
-import cn.saatana.fallback.system.LogServerFallback;
+import cn.saatana.fallback.system.LogFeignFallback;
 import cn.saatana.feign.CurdFeign;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.data.domain.Page;
-import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.List;
 
-@Component
-@FeignClient(value = "system-server",name = "LogFeign",fallback = LogServerFallback.class)
-public interface LogServer extends CurdFeign<OparetionLog> {
+//@Component
+@FeignClient(contextId = "logFeign",value = "system-server",fallback = LogFeignFallback.class)
+public interface LogFeign extends CurdFeign<OparetionLog> {
 	@Override
 	@RequestMapping("log/get")
 	Res<OparetionLog> get(@PathVariable String id);

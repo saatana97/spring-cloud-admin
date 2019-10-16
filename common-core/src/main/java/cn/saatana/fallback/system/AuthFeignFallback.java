@@ -2,19 +2,14 @@ package cn.saatana.fallback.system;
 
 import cn.saatana.common.Res;
 import cn.saatana.entity.Authorize;
-import cn.saatana.feign.system.AuthServer;
+import cn.saatana.feign.system.AuthFeign;
 import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
 
 @Component
-public class AuthServerFallback implements AuthServer {
-
-	@Override
-	public String testHi(String name) {
-		return "Sorry Dear " + name + ",Services are busy.";
-	}
+public class AuthFeignFallback implements AuthFeign {
 
 	@Override
 	public Res<Authorize> get(String id) {

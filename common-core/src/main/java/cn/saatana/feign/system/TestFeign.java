@@ -1,14 +1,13 @@
 package cn.saatana.feign.system;
 
-import cn.saatana.fallback.system.TestServerFallback;
+import cn.saatana.fallback.system.TestFeignFallback;
 import org.springframework.cloud.openfeign.FeignClient;
-import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-@Component
-@FeignClient(value = "system-server",name = "TestFeign",fallback = TestServerFallback.class)
-public interface TestServer {
+//@Component
+@FeignClient(contextId = "testFeign",value = "system-server",fallback = TestFeignFallback.class)
+public interface TestFeign {
 	@RequestMapping("/test/hi")
 	String testHi(@RequestParam String name);
 }

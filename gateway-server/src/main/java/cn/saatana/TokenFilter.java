@@ -1,8 +1,6 @@
 package cn.saatana;
 
-import cn.saatana.config.AppProperties;
 import org.apache.commons.lang.StringUtils;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.gateway.filter.GatewayFilter;
 import org.springframework.cloud.gateway.filter.GatewayFilterChain;
 import org.springframework.core.Ordered;
@@ -19,15 +17,13 @@ import java.util.logging.Logger;
 @Component
 public class TokenFilter implements GatewayFilter, Ordered {
 	private final Logger log = Logger.getLogger("TokenFilter");
-	@Autowired
-	private AppProperties appProp;
 
 	@Override
 	public Mono<Void> filter(ServerWebExchange exchange, GatewayFilterChain chain) {
 		ServerHttpRequest request = exchange.getRequest();
 		ServerHttpResponse response = exchange.getResponse();
 		// 允许本地请求跨域访问
-		if (appProp.isAllowLocalCrossDomain() && request.getRemoteAddress().equals("0:0:0:0:0:0:0:1")) {
+		if (request.getRemoteAddress().equals("0:0:0:0:0:0:0:1")) {
 			response.getHeaders().add("Access-Control-Allow-Origin", "*");
 		}
 		// 设置响应类型及编码
